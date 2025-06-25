@@ -24,7 +24,6 @@ public class CacheController {
         Map<String, Object> info = new HashMap<>();
         int size = cacheService.size();
         info.put("size", size);
-        logger.info("=== CACHE CONTROLLER ===");
         logger.info("Cache info requested. Current size: {}", size);
         logger.info("Returning: {}", info);
         return ResponseEntity.ok(info);

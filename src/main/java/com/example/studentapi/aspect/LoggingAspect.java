@@ -15,11 +15,11 @@ public class LoggingAspect {
 
     @Before("execution(* com.example.studentapi.controller..*(..)) || execution(* com.example.studentapi.service..*(..))")
     public void logBefore(JoinPoint joinPoint) {
-        logger.info("Вызван метод: {} с аргументами: {}", joinPoint.getSignature(), joinPoint.getArgs());
+        logger.info("Method called: {} with arguments: {}", joinPoint.getSignature(), joinPoint.getArgs());
     }
 
     @AfterThrowing(pointcut = "execution(* com.example.studentapi..*(..))", throwing = "ex")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable ex) {
-        logger.error("Ошибка в методе: {}. Сообщение: {}", joinPoint.getSignature(), ex.getMessage(), ex);
+        logger.error("Error in method: {}. Message: {}", joinPoint.getSignature(), ex.getMessage(), ex);
     }
 } 
